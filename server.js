@@ -5,6 +5,10 @@ const app = express();
 const PORT_NUMBER = 8081;
 const VIEWS_PATH = path.join(__dirname, "/views/");
 
+app.use(express.static("node_modules/bootstrap/dist/css"));
+
+
+// Routes 
 // endpoint to the home page
 app.get('/', (req, res) => {
     res.sendFile(VIEWS_PATH + "index.html");
