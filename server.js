@@ -1,25 +1,58 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+
+const ChatMessage = require("./models/ChatMessage");
+
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-const PORT_NUMBER = 8081;
-const VIEWS_PATH = path.join(__dirname, "/views/");
+// Middleware
+app.use(cors());
+app.use(express.json());
 
-app.use(express.static("node_modules/bootstrap/dist/css"));
+// MongoDB Connection
+mongoose.connect("mongodb+srv://<default>:<RQjvaPOVe3VaZqrk>@cluster0.y3rajwk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
 
-app.use(express.static('public'));
+// Routes
+app.get("/messages", async (req, res) => {
+	try {
+		const messages = await ChatMessage.find();
+		res.json(messages);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ error: "Internal Server Error" });
+	}
+});
 
-// Routes 
-// endpoint to the home page
-app.get('/', (req, res) => {
-    res.sendFile(VIEWS_PATH + "index.html");
-})
+app.post("/messages", async (req, res) => {
+	try {
+		const { user, message } = req.body;
 
-// route to login page
-app.get('/login', (req, res) => {
-    res.sendFile(VIEWS_PATH + "login.html");
-})
+		if (!user || !message) {
+			return res
+				.status(400)
+				.json({ error: "User and message are required" });
+		}
 
-app.listen(PORT_NUMBER, () => {
-	console.log(`Listening on port ${PORT_NUMBER}`);
+		const chatMessage = new ChatMessage({
+			user,
+			message,
+		});
+
+		await chatMessage.save();
+
+		res.status(201).json(chatMessage);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ error: "Internal Server Error" });
+	}
+});
+
+// Start the server
+app.listen(PORT, () => {
+	console.log(`Server is running on port ${PORT}`);
 });
