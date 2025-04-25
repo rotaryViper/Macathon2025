@@ -20,8 +20,16 @@ app.get('/login', (req, res) => {
     res.sendFile(VIEWS_PATH + "login.html");
 })
 
+app.get('/signup', (req, res) =>{
+    res.sendFile(VIEWS_PATH + "signup.html");
+})
+
 app.post('/login', (req, res) => {
     const {email, password} = req.body;
+})
+
+app.post('/signup', (req, res) => {
+    const {email, password, repassword} = req.body;
 })
 
 app.listen(PORT_NUMBER, () => {
