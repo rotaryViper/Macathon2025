@@ -2,16 +2,18 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #cadcfc;
-    color: #00246b;
+    background-color: #ffe66d;
+    color: #004025;
 }
 
 .App {
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 h1 {
-    color: #00246b;
+    color: #004025;
 }
 
 ul {
@@ -20,7 +22,7 @@ ul {
 }
 
 li {
-    background-color: #8ab6f9;
+    background-color: #000078;
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
@@ -29,20 +31,21 @@ li {
 input {
     padding: 10px;
     margin-right: 10px;
-    border: 1px solid #00246b;
+    border: 1px solid #004025;
     border-radius: 5px;
 }
 
 button {
     padding: 10px;
-    background-color: #00246b;
+    background-color: #004025;
     color: #cadcfc;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
 }
 
 button:hover {
-    background-color: #8ab6f9;
-    color: #00246b;
+    background-color: #770000;
+    color: #cadcfc;
 }

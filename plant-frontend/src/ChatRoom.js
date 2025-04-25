@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import AudioPlayer from './AudioPlayer';
+import logo from './logo.png';
 
 const ChatRoom = () => {
 	const [messages, setMessages] = useState([]);
@@ -45,9 +47,14 @@ const ChatRoom = () => {
 		return () => clearInterval(interval);
 	}, []); // Run only once on mount
 
-	return (
+  const musicURL  = 'https://www.youtube.com/watch?v=jfKfPfyJRdk';
+	return ( 
 		<div>
-			<h2>Chat Room</h2>
+      <div style={{width:"256px", margin: "0 auto"}}>
+			  <h2>Lock In</h2>
+        <img src={logo} alt="Logo" width="64px" height="64px"></img>
+      </div>
+      <AudioPlayer url={musicURL} />
 			<ul>
 				{messages.map((message) => (
 					<li key={message._id}>

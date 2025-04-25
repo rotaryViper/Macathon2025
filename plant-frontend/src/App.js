@@ -2,9 +2,11 @@ import './App.css';
 import ChatRoom from './ChatRoom';
 
 function App() {
+ 
 	return (
-		<div className="App">
+		<div className="App" >
 			<ChatRoom />
+      
 		</div>
 	);
 }
