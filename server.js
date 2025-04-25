@@ -20,6 +20,10 @@ app.get('/login', (req, res) => {
     res.sendFile(VIEWS_PATH + "login.html");
 })
 
+app.post('/login', (req, res) => {
+    const {email, password} = req.body;
+})
+
 app.listen(PORT_NUMBER, () => {
 	console.log(`Listening on port ${PORT_NUMBER}`);
 });
