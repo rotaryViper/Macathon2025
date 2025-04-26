@@ -12,8 +12,14 @@ body {
     justify-content: center;
 }
 
-h1 {
+h2 {
     color: #004025;
+    font-weight: 250;
+}
+
+h4 {
+    color: #0f0f0f;
+    font-weight: 100;
 }
 
 ul {
