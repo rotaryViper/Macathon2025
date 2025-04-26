@@ -48,7 +48,7 @@ connect(url)
 /**
  * Models
  */
-const Messages = require("./models/ChatMessages");
+const Messages = require("./models/ChatMessage");
 
 // Routes
 // endpoint to the home page

@@ -1,6 +1,6 @@
 body {
-    background: #49a1ff;
-    background: linear-gradient(to right, #328bff, #63c1ff);
+    background: #a9e9cc;
+    background: linear-gradient(to right, #c9f5d9, #f1fdf5);
   }
   
   .btn-login {
@@ -14,8 +14,4 @@ body {
     background-color: #ea4335;
   }
   
-  .btn-facebook {
-    color: white !important;
-    background-color: #3b5998;
-  }
 
