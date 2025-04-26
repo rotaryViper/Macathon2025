@@ -51,8 +51,11 @@ const ChatRoom = () => {
 	return ( 
 		<div>
       <div style={{width:"256px", margin: "0 auto"}}>
-			  <h2>Lock In</h2>
+			  <h2 style = {{margin: "1vh 0 0 0"}}>Lock In</h2>
         <img src={logo} alt="Logo" width="64px" height="64px"></img>
+        <h4 style={{margin: 0}}>
+        Aim for goals beyond your comprehension. If you can do it now, you can do better later on.
+        </h4>
       </div>
       <AudioPlayer url={musicURL} />
 			<ul>
